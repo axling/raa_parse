@@ -1,0 +1,1 @@
+This is a small script for crawling the Fornsök webpage to download all remain in their database. The script uses Beautiful Soup.
