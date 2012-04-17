@@ -16,15 +16,15 @@ ids = []
 start_page=1
 
 def put_in_database(doc):
-    url = "http://localhost.com:5984"
+    url = "https://remains.iriscouch.com"
     opener = urllib2.build_opener(urllib2.HTTPHandler)
     r = requests.get(url + "/_uuids")
-    print r.text
+
     uuid_dict = json.loads(r.text)
-    uuid = uuid_dict["uuids"].index(0)    
+    uuid = uuid_dict["uuids"][0]
 
     header = {'content-type': 'application/json'}
-    r = request.put(url + "/remains/" + uuid, data=doc, headers=header)
+    r = requests.put(url + "/remains/" + uuid, data=doc, headers=header)
             
     response_dict = json.loads(r.text)
     response_dict['ok'] = "true"
